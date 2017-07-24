@@ -2,7 +2,7 @@
   "commitish" : "0.9.904",
   "iOS" : [
     {
-      "hash" : "54e7cbabfc51b9ee028c7e44abecb4a39d7a718e00137158ca0ae04746c13f06",
+      "hash" : "019964d9515fddc3562393c48bccdca5eb2ac18563c34da6ac2888dcfedaf673",
       "name" : "SwiftProtobuf"
     }
   ]

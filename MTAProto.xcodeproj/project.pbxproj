@@ -97,7 +97,6 @@
 			buildConfigurationList = 242339C61F261DF900006908 /* Build configuration list for PBXNativeTarget "MTAProto" */;
 			buildPhases = (
 				246C94671F26203500650CB7 /* Copy Carthage Frameworks */,
-				246C946D1F26211700650CB7 /* Generate Swift From Proto */,
 				242339B91F261DF900006908 /* Sources */,
 				242339BA1F261DF900006908 /* Frameworks */,
 				242339BB1F261DF900006908 /* Headers */,
@@ -170,20 +169,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		246C946D1F26211700650CB7 /* Generate Swift From Proto */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Swift From Proto";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "swift build -C Carthage/Checkouts/swift-protobuf/ -c release -Xswiftc -static-stdlib\nrm -f *.pb.swift\nprotoc --plugin Carthage/Checkouts/swift-protobuf/.build/release/protoc-gen-swift --swift_out=. proto/*";
 		};
 /* End PBXShellScriptBuildPhase section */
 
