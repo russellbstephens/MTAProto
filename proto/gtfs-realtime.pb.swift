@@ -54,28 +54,28 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// - Feed application (updates, positions or alerts). A feed should contain only
 ///   items of one specified application; all the other entities will be ignored.
 /// - Polling frequency
-struct TransitRealtime_FeedMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".FeedMessage"
+public struct TransitRealtime_FeedMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".FeedMessage"
 
   /// Metadata about this feed and feed message.
-  var header: TransitRealtime_FeedHeader {
+  public var header: TransitRealtime_FeedHeader {
     get {return _storage._header ?? TransitRealtime_FeedHeader()}
     set {_uniqueStorage()._header = newValue}
   }
   /// Returns true if `header` has been explicitly set.
-  var hasHeader: Bool {return _storage._header != nil}
+  public var hasHeader: Bool {return _storage._header != nil}
   /// Clears the value of `header`. Subsequent reads from it will return its default value.
-  mutating func clearHeader() {_storage._header = nil}
+  public mutating func clearHeader() {_storage._header = nil}
 
   /// Contents of the feed.
-  var entity: [TransitRealtime_FeedEntity] {
+  public var entity: [TransitRealtime_FeedEntity] {
     get {return _storage._entity}
     set {_uniqueStorage()._entity = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -91,7 +91,7 @@ struct TransitRealtime_FeedMessage: SwiftProtobuf.Message, SwiftProtobuf.Extensi
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -110,7 +110,7 @@ struct TransitRealtime_FeedMessage: SwiftProtobuf.Message, SwiftProtobuf.Extensi
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._header {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -123,63 +123,63 @@ struct TransitRealtime_FeedMessage: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Metadata about a feed, included in feed messages.
-struct TransitRealtime_FeedHeader: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".FeedHeader"
+public struct TransitRealtime_FeedHeader: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".FeedHeader"
 
   /// Version of the feed specification.
   /// The current version is 1.0.
-  var gtfsRealtimeVersion: String {
+  public var gtfsRealtimeVersion: String {
     get {return _gtfsRealtimeVersion ?? String()}
     set {_gtfsRealtimeVersion = newValue}
   }
   /// Returns true if `gtfsRealtimeVersion` has been explicitly set.
-  var hasGtfsRealtimeVersion: Bool {return self._gtfsRealtimeVersion != nil}
+  public var hasGtfsRealtimeVersion: Bool {return self._gtfsRealtimeVersion != nil}
   /// Clears the value of `gtfsRealtimeVersion`. Subsequent reads from it will return its default value.
-  mutating func clearGtfsRealtimeVersion() {self._gtfsRealtimeVersion = nil}
+  public mutating func clearGtfsRealtimeVersion() {self._gtfsRealtimeVersion = nil}
 
-  var incrementality: TransitRealtime_FeedHeader.Incrementality {
+  public var incrementality: TransitRealtime_FeedHeader.Incrementality {
     get {return _incrementality ?? .fullDataset}
     set {_incrementality = newValue}
   }
   /// Returns true if `incrementality` has been explicitly set.
-  var hasIncrementality: Bool {return self._incrementality != nil}
+  public var hasIncrementality: Bool {return self._incrementality != nil}
   /// Clears the value of `incrementality`. Subsequent reads from it will return its default value.
-  mutating func clearIncrementality() {self._incrementality = nil}
+  public mutating func clearIncrementality() {self._incrementality = nil}
 
   /// This timestamp identifies the moment when the content of this feed has been
   /// created (in server time). In POSIX time (i.e., number of seconds since
   /// January 1st 1970 00:00:00 UTC).
-  var timestamp: UInt64 {
+  public var timestamp: UInt64 {
     get {return _timestamp ?? 0}
     set {_timestamp = newValue}
   }
   /// Returns true if `timestamp` has been explicitly set.
-  var hasTimestamp: Bool {return self._timestamp != nil}
+  public var hasTimestamp: Bool {return self._timestamp != nil}
   /// Clears the value of `timestamp`. Subsequent reads from it will return its default value.
-  mutating func clearTimestamp() {self._timestamp = nil}
+  public mutating func clearTimestamp() {self._timestamp = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Determines whether the current fetch is incremental.  Currently,
   /// DIFFERENTIAL mode is unsupported and behavior is unspecified for feeds
   /// that use this mode.  There are discussions on the GTFS-realtime mailing
   /// list around fully specifying the behavior of DIFFERENTIAL mode and the
   /// documentation will be updated when those discussions are finalized.
-  enum Incrementality: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Incrementality: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case fullDataset // = 0
     case differential // = 1
 
-    init() {
+    public init() {
       self = .fullDataset
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .fullDataset
       case 1: self = .differential
@@ -187,7 +187,7 @@ struct TransitRealtime_FeedHeader: SwiftProtobuf.Message, SwiftProtobuf.Extensib
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .fullDataset: return 0
       case .differential: return 1
@@ -196,7 +196,7 @@ struct TransitRealtime_FeedHeader: SwiftProtobuf.Message, SwiftProtobuf.Extensib
 
   }
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -208,7 +208,7 @@ struct TransitRealtime_FeedHeader: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._gtfsRealtimeVersion)
@@ -225,7 +225,7 @@ struct TransitRealtime_FeedHeader: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._gtfsRealtimeVersion {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
@@ -239,15 +239,15 @@ struct TransitRealtime_FeedHeader: SwiftProtobuf.Message, SwiftProtobuf.Extensib
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _gtfsRealtimeVersion: String? = nil
   fileprivate var _incrementality: TransitRealtime_FeedHeader.Incrementality? = nil
   fileprivate var _timestamp: UInt64? = nil
 }
 
 /// A definition (or update) of an entity in the transit feed.
-struct TransitRealtime_FeedEntity: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".FeedEntity"
+public struct TransitRealtime_FeedEntity: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".FeedEntity"
 
   /// The ids are used only to provide incrementality support. The id should be
   /// unique within a FeedMessage. Consequent FeedMessages may contain
@@ -257,58 +257,58 @@ struct TransitRealtime_FeedEntity: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// The actual GTFS entities (e.g. stations, routes, trips) referenced by the
   /// feed must be specified by explicit selectors (see EntitySelector below for
   /// more info).
-  var id: String {
+  public var id: String {
     get {return _storage._id ?? String()}
     set {_uniqueStorage()._id = newValue}
   }
   /// Returns true if `id` has been explicitly set.
-  var hasID: Bool {return _storage._id != nil}
+  public var hasID: Bool {return _storage._id != nil}
   /// Clears the value of `id`. Subsequent reads from it will return its default value.
-  mutating func clearID() {_storage._id = nil}
+  public mutating func clearID() {_storage._id = nil}
 
   /// Whether this entity is to be deleted. Relevant only for incremental
   /// fetches.
-  var isDeleted: Bool {
+  public var isDeleted: Bool {
     get {return _storage._isDeleted ?? false}
     set {_uniqueStorage()._isDeleted = newValue}
   }
   /// Returns true if `isDeleted` has been explicitly set.
-  var hasIsDeleted: Bool {return _storage._isDeleted != nil}
+  public var hasIsDeleted: Bool {return _storage._isDeleted != nil}
   /// Clears the value of `isDeleted`. Subsequent reads from it will return its default value.
-  mutating func clearIsDeleted() {_storage._isDeleted = nil}
+  public mutating func clearIsDeleted() {_storage._isDeleted = nil}
 
   /// Data about the entity itself. Exactly one of the following fields must be
   /// present (unless the entity is being deleted).
-  var tripUpdate: TransitRealtime_TripUpdate {
+  public var tripUpdate: TransitRealtime_TripUpdate {
     get {return _storage._tripUpdate ?? TransitRealtime_TripUpdate()}
     set {_uniqueStorage()._tripUpdate = newValue}
   }
   /// Returns true if `tripUpdate` has been explicitly set.
-  var hasTripUpdate: Bool {return _storage._tripUpdate != nil}
+  public var hasTripUpdate: Bool {return _storage._tripUpdate != nil}
   /// Clears the value of `tripUpdate`. Subsequent reads from it will return its default value.
-  mutating func clearTripUpdate() {_storage._tripUpdate = nil}
+  public mutating func clearTripUpdate() {_storage._tripUpdate = nil}
 
-  var vehicle: TransitRealtime_VehiclePosition {
+  public var vehicle: TransitRealtime_VehiclePosition {
     get {return _storage._vehicle ?? TransitRealtime_VehiclePosition()}
     set {_uniqueStorage()._vehicle = newValue}
   }
   /// Returns true if `vehicle` has been explicitly set.
-  var hasVehicle: Bool {return _storage._vehicle != nil}
+  public var hasVehicle: Bool {return _storage._vehicle != nil}
   /// Clears the value of `vehicle`. Subsequent reads from it will return its default value.
-  mutating func clearVehicle() {_storage._vehicle = nil}
+  public mutating func clearVehicle() {_storage._vehicle = nil}
 
-  var alert: TransitRealtime_Alert {
+  public var alert: TransitRealtime_Alert {
     get {return _storage._alert ?? TransitRealtime_Alert()}
     set {_uniqueStorage()._alert = newValue}
   }
   /// Returns true if `alert` has been explicitly set.
-  var hasAlert: Bool {return _storage._alert != nil}
+  public var hasAlert: Bool {return _storage._alert != nil}
   /// Clears the value of `alert`. Subsequent reads from it will return its default value.
-  mutating func clearAlert() {_storage._alert = nil}
+  public mutating func clearAlert() {_storage._alert = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -325,7 +325,7 @@ struct TransitRealtime_FeedEntity: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -347,7 +347,7 @@ struct TransitRealtime_FeedEntity: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._id {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
@@ -369,7 +369,7 @@ struct TransitRealtime_FeedEntity: SwiftProtobuf.Message, SwiftProtobuf.Extensib
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
@@ -399,31 +399,31 @@ struct TransitRealtime_FeedEntity: SwiftProtobuf.Message, SwiftProtobuf.Extensib
 /// that the trip is still proceeding.
 /// Note that the feed provider is allowed, but not required, to purge past
 /// updates - this is one case where this would be practically useful.
-struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".TripUpdate"
+public struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".TripUpdate"
 
   /// The Trip that this message applies to. There can be at most one
   /// TripUpdate entity for each actual trip instance.
   /// If there is none, that means there is no prediction information available.
   /// It does *not* mean that the trip is progressing according to schedule.
-  var trip: TransitRealtime_TripDescriptor {
+  public var trip: TransitRealtime_TripDescriptor {
     get {return _storage._trip ?? TransitRealtime_TripDescriptor()}
     set {_uniqueStorage()._trip = newValue}
   }
   /// Returns true if `trip` has been explicitly set.
-  var hasTrip: Bool {return _storage._trip != nil}
+  public var hasTrip: Bool {return _storage._trip != nil}
   /// Clears the value of `trip`. Subsequent reads from it will return its default value.
-  mutating func clearTrip() {_storage._trip = nil}
+  public mutating func clearTrip() {_storage._trip = nil}
 
   /// Additional information on the vehicle that is serving this trip.
-  var vehicle: TransitRealtime_VehicleDescriptor {
+  public var vehicle: TransitRealtime_VehicleDescriptor {
     get {return _storage._vehicle ?? TransitRealtime_VehicleDescriptor()}
     set {_uniqueStorage()._vehicle = newValue}
   }
   /// Returns true if `vehicle` has been explicitly set.
-  var hasVehicle: Bool {return _storage._vehicle != nil}
+  public var hasVehicle: Bool {return _storage._vehicle != nil}
   /// Clears the value of `vehicle`. Subsequent reads from it will return its default value.
-  mutating func clearVehicle() {_storage._vehicle = nil}
+  public mutating func clearVehicle() {_storage._vehicle = nil}
 
   /// Updates to StopTimes for the trip (both future, i.e., predictions, and in
   /// some cases, past ones, i.e., those that already happened).
@@ -444,21 +444,21 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// - stop_sequences 3,4,5,6,7 have delay of 5 min.
   /// - stop_sequences 8,9 have delay of 1 min.
   /// - stop_sequences 10,... have unknown delay.
-  var stopTimeUpdate: [TransitRealtime_TripUpdate.StopTimeUpdate] {
+  public var stopTimeUpdate: [TransitRealtime_TripUpdate.StopTimeUpdate] {
     get {return _storage._stopTimeUpdate}
     set {_uniqueStorage()._stopTimeUpdate = newValue}
   }
 
   /// Moment at which the vehicle's real-time progress was measured. In POSIX
   /// time (i.e., the number of seconds since January 1st 1970 00:00:00 UTC).
-  var timestamp: UInt64 {
+  public var timestamp: UInt64 {
     get {return _storage._timestamp ?? 0}
     set {_uniqueStorage()._timestamp = newValue}
   }
   /// Returns true if `timestamp` has been explicitly set.
-  var hasTimestamp: Bool {return _storage._timestamp != nil}
+  public var hasTimestamp: Bool {return _storage._timestamp != nil}
   /// Clears the value of `timestamp`. Subsequent reads from it will return its default value.
-  mutating func clearTimestamp() {_storage._timestamp = nil}
+  public mutating func clearTimestamp() {_storage._timestamp = nil}
 
   /// The current schedule deviation for the trip.  Delay should only be
   /// specified when the prediction is given relative to some existing schedule
@@ -478,16 +478,16 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   ///
   /// NOTE: This field is still experimental, and subject to change. It may be
   /// formally adopted in the future.
-  var delay: Int32 {
+  public var delay: Int32 {
     get {return _storage._delay ?? 0}
     set {_uniqueStorage()._delay = newValue}
   }
   /// Returns true if `delay` has been explicitly set.
-  var hasDelay: Bool {return _storage._delay != nil}
+  public var hasDelay: Bool {return _storage._delay != nil}
   /// Clears the value of `delay`. Subsequent reads from it will return its default value.
-  mutating func clearDelay() {_storage._delay = nil}
+  public mutating func clearDelay() {_storage._delay = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Timing information for a single predicted event (either arrival or
   /// departure).
@@ -504,49 +504,49 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// note, we don't yet define its precise statistical meaning). It's possible
   /// for the uncertainty to be 0, for example for trains that are driven under
   /// computer timing control.
-  struct StopTimeEvent: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-    static let protoMessageName: String = TransitRealtime_TripUpdate.protoMessageName + ".StopTimeEvent"
+  public struct StopTimeEvent: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+    public static let protoMessageName: String = TransitRealtime_TripUpdate.protoMessageName + ".StopTimeEvent"
 
     /// Delay (in seconds) can be positive (meaning that the vehicle is late) or
     /// negative (meaning that the vehicle is ahead of schedule). Delay of 0
     /// means that the vehicle is exactly on time.
-    var delay: Int32 {
+    public var delay: Int32 {
       get {return _delay ?? 0}
       set {_delay = newValue}
     }
     /// Returns true if `delay` has been explicitly set.
-    var hasDelay: Bool {return self._delay != nil}
+    public var hasDelay: Bool {return self._delay != nil}
     /// Clears the value of `delay`. Subsequent reads from it will return its default value.
-    mutating func clearDelay() {self._delay = nil}
+    public mutating func clearDelay() {self._delay = nil}
 
     /// Event as absolute time.
     /// In Unix time (i.e., number of seconds since January 1st 1970 00:00:00
     /// UTC).
-    var time: Int64 {
+    public var time: Int64 {
       get {return _time ?? 0}
       set {_time = newValue}
     }
     /// Returns true if `time` has been explicitly set.
-    var hasTime: Bool {return self._time != nil}
+    public var hasTime: Bool {return self._time != nil}
     /// Clears the value of `time`. Subsequent reads from it will return its default value.
-    mutating func clearTime() {self._time = nil}
+    public mutating func clearTime() {self._time = nil}
 
     /// If uncertainty is omitted, it is interpreted as unknown.
     /// If the prediction is unknown or too uncertain, the delay (or time) field
     /// should be empty. In such case, the uncertainty field is ignored.
     /// To specify a completely certain prediction, set its uncertainty to 0.
-    var uncertainty: Int32 {
+    public var uncertainty: Int32 {
       get {return _uncertainty ?? 0}
       set {_uncertainty = newValue}
     }
     /// Returns true if `uncertainty` has been explicitly set.
-    var hasUncertainty: Bool {return self._uncertainty != nil}
+    public var hasUncertainty: Bool {return self._uncertainty != nil}
     /// Clears the value of `uncertainty`. Subsequent reads from it will return its default value.
-    mutating func clearUncertainty() {self._uncertainty = nil}
+    public mutating func clearUncertainty() {self._uncertainty = nil}
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
 
     public var isInitialized: Bool {
       if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -557,7 +557,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
     /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
     /// initializers are defined in the SwiftProtobuf library. See the Message and
     /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularInt32Field(value: &self._delay)
@@ -574,7 +574,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
     /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = self._delay {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
@@ -588,7 +588,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+    public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     fileprivate var _delay: Int32? = nil
     fileprivate var _time: Int64? = nil
     fileprivate var _uncertainty: Int32? = nil
@@ -597,61 +597,61 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// Realtime update for arrival and/or departure events for a given stop on a
   /// trip. Updates can be supplied for both past and future events.
   /// The producer is allowed, although not required, to drop past events.
-  struct StopTimeUpdate: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-    static let protoMessageName: String = TransitRealtime_TripUpdate.protoMessageName + ".StopTimeUpdate"
+  public struct StopTimeUpdate: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+    public static let protoMessageName: String = TransitRealtime_TripUpdate.protoMessageName + ".StopTimeUpdate"
 
     /// Must be the same as in stop_times.txt in the corresponding GTFS feed.
-    var stopSequence: UInt32 {
+    public var stopSequence: UInt32 {
       get {return _storage._stopSequence ?? 0}
       set {_uniqueStorage()._stopSequence = newValue}
     }
     /// Returns true if `stopSequence` has been explicitly set.
-    var hasStopSequence: Bool {return _storage._stopSequence != nil}
+    public var hasStopSequence: Bool {return _storage._stopSequence != nil}
     /// Clears the value of `stopSequence`. Subsequent reads from it will return its default value.
-    mutating func clearStopSequence() {_storage._stopSequence = nil}
+    public mutating func clearStopSequence() {_storage._stopSequence = nil}
 
     /// Must be the same as in stops.txt in the corresponding GTFS feed.
-    var stopID: String {
+    public var stopID: String {
       get {return _storage._stopID ?? String()}
       set {_uniqueStorage()._stopID = newValue}
     }
     /// Returns true if `stopID` has been explicitly set.
-    var hasStopID: Bool {return _storage._stopID != nil}
+    public var hasStopID: Bool {return _storage._stopID != nil}
     /// Clears the value of `stopID`. Subsequent reads from it will return its default value.
-    mutating func clearStopID() {_storage._stopID = nil}
+    public mutating func clearStopID() {_storage._stopID = nil}
 
-    var arrival: TransitRealtime_TripUpdate.StopTimeEvent {
+    public var arrival: TransitRealtime_TripUpdate.StopTimeEvent {
       get {return _storage._arrival ?? TransitRealtime_TripUpdate.StopTimeEvent()}
       set {_uniqueStorage()._arrival = newValue}
     }
     /// Returns true if `arrival` has been explicitly set.
-    var hasArrival: Bool {return _storage._arrival != nil}
+    public var hasArrival: Bool {return _storage._arrival != nil}
     /// Clears the value of `arrival`. Subsequent reads from it will return its default value.
-    mutating func clearArrival() {_storage._arrival = nil}
+    public mutating func clearArrival() {_storage._arrival = nil}
 
-    var departure: TransitRealtime_TripUpdate.StopTimeEvent {
+    public var departure: TransitRealtime_TripUpdate.StopTimeEvent {
       get {return _storage._departure ?? TransitRealtime_TripUpdate.StopTimeEvent()}
       set {_uniqueStorage()._departure = newValue}
     }
     /// Returns true if `departure` has been explicitly set.
-    var hasDeparture: Bool {return _storage._departure != nil}
+    public var hasDeparture: Bool {return _storage._departure != nil}
     /// Clears the value of `departure`. Subsequent reads from it will return its default value.
-    mutating func clearDeparture() {_storage._departure = nil}
+    public mutating func clearDeparture() {_storage._departure = nil}
 
-    var scheduleRelationship: TransitRealtime_TripUpdate.StopTimeUpdate.ScheduleRelationship {
+    public var scheduleRelationship: TransitRealtime_TripUpdate.StopTimeUpdate.ScheduleRelationship {
       get {return _storage._scheduleRelationship ?? .scheduled}
       set {_uniqueStorage()._scheduleRelationship = newValue}
     }
     /// Returns true if `scheduleRelationship` has been explicitly set.
-    var hasScheduleRelationship: Bool {return _storage._scheduleRelationship != nil}
+    public var hasScheduleRelationship: Bool {return _storage._scheduleRelationship != nil}
     /// Clears the value of `scheduleRelationship`. Subsequent reads from it will return its default value.
-    mutating func clearScheduleRelationship() {_storage._scheduleRelationship = nil}
+    public mutating func clearScheduleRelationship() {_storage._scheduleRelationship = nil}
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     /// The relation between this StopTime and the static schedule.
-    enum ScheduleRelationship: SwiftProtobuf.Enum {
-      typealias RawValue = Int
+    public enum ScheduleRelationship: SwiftProtobuf.Enum {
+      public typealias RawValue = Int
 
       /// The vehicle is proceeding in accordance with its static schedule of
       /// stops, although not necessarily according to the times of the schedule.
@@ -671,11 +671,11 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
       /// Neither arrival nor departure should be supplied.
       case noData // = 2
 
-      init() {
+      public init() {
         self = .scheduled
       }
 
-      init?(rawValue: Int) {
+      public init?(rawValue: Int) {
         switch rawValue {
         case 0: self = .scheduled
         case 1: self = .skipped
@@ -684,7 +684,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
         }
       }
 
-      var rawValue: Int {
+      public var rawValue: Int {
         switch self {
         case .scheduled: return 0
         case .skipped: return 1
@@ -694,7 +694,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
 
     }
 
-    init() {}
+    public init() {}
 
     public var isInitialized: Bool {
       if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -709,7 +709,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
     /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
     /// initializers are defined in the SwiftProtobuf library. See the Message and
     /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       _ = _uniqueStorage()
       try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
         while let fieldNumber = try decoder.nextFieldNumber() {
@@ -731,7 +731,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
     /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
         if let v = _storage._stopSequence {
           try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1)
@@ -753,11 +753,11 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+    public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     fileprivate var _storage = _StorageClass.defaultInstance
   }
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -774,7 +774,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -796,7 +796,7 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._trip {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -818,114 +818,114 @@ struct TransitRealtime_TripUpdate: SwiftProtobuf.Message, SwiftProtobuf.Extensib
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Realtime positioning information for a given vehicle.
-struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".VehiclePosition"
+public struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".VehiclePosition"
 
   /// The Trip that this vehicle is serving.
   /// Can be empty or partial if the vehicle can not be identified with a given
   /// trip instance.
-  var trip: TransitRealtime_TripDescriptor {
+  public var trip: TransitRealtime_TripDescriptor {
     get {return _storage._trip ?? TransitRealtime_TripDescriptor()}
     set {_uniqueStorage()._trip = newValue}
   }
   /// Returns true if `trip` has been explicitly set.
-  var hasTrip: Bool {return _storage._trip != nil}
+  public var hasTrip: Bool {return _storage._trip != nil}
   /// Clears the value of `trip`. Subsequent reads from it will return its default value.
-  mutating func clearTrip() {_storage._trip = nil}
+  public mutating func clearTrip() {_storage._trip = nil}
 
   /// Additional information on the vehicle that is serving this trip.
-  var vehicle: TransitRealtime_VehicleDescriptor {
+  public var vehicle: TransitRealtime_VehicleDescriptor {
     get {return _storage._vehicle ?? TransitRealtime_VehicleDescriptor()}
     set {_uniqueStorage()._vehicle = newValue}
   }
   /// Returns true if `vehicle` has been explicitly set.
-  var hasVehicle: Bool {return _storage._vehicle != nil}
+  public var hasVehicle: Bool {return _storage._vehicle != nil}
   /// Clears the value of `vehicle`. Subsequent reads from it will return its default value.
-  mutating func clearVehicle() {_storage._vehicle = nil}
+  public mutating func clearVehicle() {_storage._vehicle = nil}
 
   /// Current position of this vehicle.
-  var position: TransitRealtime_Position {
+  public var position: TransitRealtime_Position {
     get {return _storage._position ?? TransitRealtime_Position()}
     set {_uniqueStorage()._position = newValue}
   }
   /// Returns true if `position` has been explicitly set.
-  var hasPosition: Bool {return _storage._position != nil}
+  public var hasPosition: Bool {return _storage._position != nil}
   /// Clears the value of `position`. Subsequent reads from it will return its default value.
-  mutating func clearPosition() {_storage._position = nil}
+  public mutating func clearPosition() {_storage._position = nil}
 
   /// The stop sequence index of the current stop. The meaning of
   /// current_stop_sequence (i.e., the stop that it refers to) is determined by
   /// current_status.
   /// If current_status is missing IN_TRANSIT_TO is assumed.
-  var currentStopSequence: UInt32 {
+  public var currentStopSequence: UInt32 {
     get {return _storage._currentStopSequence ?? 0}
     set {_uniqueStorage()._currentStopSequence = newValue}
   }
   /// Returns true if `currentStopSequence` has been explicitly set.
-  var hasCurrentStopSequence: Bool {return _storage._currentStopSequence != nil}
+  public var hasCurrentStopSequence: Bool {return _storage._currentStopSequence != nil}
   /// Clears the value of `currentStopSequence`. Subsequent reads from it will return its default value.
-  mutating func clearCurrentStopSequence() {_storage._currentStopSequence = nil}
+  public mutating func clearCurrentStopSequence() {_storage._currentStopSequence = nil}
 
   /// Identifies the current stop. The value must be the same as in stops.txt in
   /// the corresponding GTFS feed.
-  var stopID: String {
+  public var stopID: String {
     get {return _storage._stopID ?? String()}
     set {_uniqueStorage()._stopID = newValue}
   }
   /// Returns true if `stopID` has been explicitly set.
-  var hasStopID: Bool {return _storage._stopID != nil}
+  public var hasStopID: Bool {return _storage._stopID != nil}
   /// Clears the value of `stopID`. Subsequent reads from it will return its default value.
-  mutating func clearStopID() {_storage._stopID = nil}
+  public mutating func clearStopID() {_storage._stopID = nil}
 
   /// The exact status of the vehicle with respect to the current stop.
   /// Ignored if current_stop_sequence is missing.
-  var currentStatus: TransitRealtime_VehiclePosition.VehicleStopStatus {
+  public var currentStatus: TransitRealtime_VehiclePosition.VehicleStopStatus {
     get {return _storage._currentStatus ?? .inTransitTo}
     set {_uniqueStorage()._currentStatus = newValue}
   }
   /// Returns true if `currentStatus` has been explicitly set.
-  var hasCurrentStatus: Bool {return _storage._currentStatus != nil}
+  public var hasCurrentStatus: Bool {return _storage._currentStatus != nil}
   /// Clears the value of `currentStatus`. Subsequent reads from it will return its default value.
-  mutating func clearCurrentStatus() {_storage._currentStatus = nil}
+  public mutating func clearCurrentStatus() {_storage._currentStatus = nil}
 
   /// Moment at which the vehicle's position was measured. In POSIX time
   /// (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
-  var timestamp: UInt64 {
+  public var timestamp: UInt64 {
     get {return _storage._timestamp ?? 0}
     set {_uniqueStorage()._timestamp = newValue}
   }
   /// Returns true if `timestamp` has been explicitly set.
-  var hasTimestamp: Bool {return _storage._timestamp != nil}
+  public var hasTimestamp: Bool {return _storage._timestamp != nil}
   /// Clears the value of `timestamp`. Subsequent reads from it will return its default value.
-  mutating func clearTimestamp() {_storage._timestamp = nil}
+  public mutating func clearTimestamp() {_storage._timestamp = nil}
 
-  var congestionLevel: TransitRealtime_VehiclePosition.CongestionLevel {
+  public var congestionLevel: TransitRealtime_VehiclePosition.CongestionLevel {
     get {return _storage._congestionLevel ?? .unknownCongestionLevel}
     set {_uniqueStorage()._congestionLevel = newValue}
   }
   /// Returns true if `congestionLevel` has been explicitly set.
-  var hasCongestionLevel: Bool {return _storage._congestionLevel != nil}
+  public var hasCongestionLevel: Bool {return _storage._congestionLevel != nil}
   /// Clears the value of `congestionLevel`. Subsequent reads from it will return its default value.
-  mutating func clearCongestionLevel() {_storage._congestionLevel = nil}
+  public mutating func clearCongestionLevel() {_storage._congestionLevel = nil}
 
-  var occupancyStatus: TransitRealtime_VehiclePosition.OccupancyStatus {
+  public var occupancyStatus: TransitRealtime_VehiclePosition.OccupancyStatus {
     get {return _storage._occupancyStatus ?? .empty}
     set {_uniqueStorage()._occupancyStatus = newValue}
   }
   /// Returns true if `occupancyStatus` has been explicitly set.
-  var hasOccupancyStatus: Bool {return _storage._occupancyStatus != nil}
+  public var hasOccupancyStatus: Bool {return _storage._occupancyStatus != nil}
   /// Clears the value of `occupancyStatus`. Subsequent reads from it will return its default value.
-  mutating func clearOccupancyStatus() {_storage._occupancyStatus = nil}
+  public mutating func clearOccupancyStatus() {_storage._occupancyStatus = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum VehicleStopStatus: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum VehicleStopStatus: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
 
     /// The vehicle is just about to arrive at the stop (on a stop
     /// display, the vehicle symbol typically flashes).
@@ -937,11 +937,11 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
     /// The vehicle has departed and is in transit to the next stop.
     case inTransitTo // = 2
 
-    init() {
+    public init() {
       self = .incomingAt
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .incomingAt
       case 1: self = .stoppedAt
@@ -950,7 +950,7 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .incomingAt: return 0
       case .stoppedAt: return 1
@@ -961,8 +961,8 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
   }
 
   /// Congestion level that is affecting this vehicle.
-  enum CongestionLevel: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum CongestionLevel: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case unknownCongestionLevel // = 0
     case runningSmoothly // = 1
     case stopAndGo // = 2
@@ -971,11 +971,11 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
     /// People leaving their cars.
     case severeCongestion // = 4
 
-    init() {
+    public init() {
       self = .unknownCongestionLevel
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .unknownCongestionLevel
       case 1: self = .runningSmoothly
@@ -986,7 +986,7 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .unknownCongestionLevel: return 0
       case .runningSmoothly: return 1
@@ -1001,8 +1001,8 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
   /// The degree of passenger occupancy of the vehicle. This field is still
   /// experimental, and subject to change. It may be formally adopted in the
   /// future.
-  enum OccupancyStatus: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum OccupancyStatus: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
 
     /// The vehicle is considered empty by most measures, and has few or no
     /// passengers onboard, but is still accepting passengers.
@@ -1034,11 +1034,11 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
     /// The vehicle is not accepting additional passengers.
     case notAcceptingPassengers // = 6
 
-    init() {
+    public init() {
       self = .empty
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .empty
       case 1: self = .manySeatsAvailable
@@ -1051,7 +1051,7 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .empty: return 0
       case .manySeatsAvailable: return 1
@@ -1065,7 +1065,7 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
 
   }
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1081,7 +1081,7 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1107,7 +1107,7 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._trip {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -1141,82 +1141,82 @@ struct TransitRealtime_VehiclePosition: SwiftProtobuf.Message, SwiftProtobuf.Ext
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// An alert, indicating some sort of incident in the public transit network.
-struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".Alert"
+public struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".Alert"
 
   /// Time when the alert should be shown to the user. If missing, the
   /// alert will be shown as long as it appears in the feed.
   /// If multiple ranges are given, the alert will be shown during all of them.
-  var activePeriod: [TransitRealtime_TimeRange] {
+  public var activePeriod: [TransitRealtime_TimeRange] {
     get {return _storage._activePeriod}
     set {_uniqueStorage()._activePeriod = newValue}
   }
 
   /// Entities whose users we should notify of this alert.
-  var informedEntity: [TransitRealtime_EntitySelector] {
+  public var informedEntity: [TransitRealtime_EntitySelector] {
     get {return _storage._informedEntity}
     set {_uniqueStorage()._informedEntity = newValue}
   }
 
-  var cause: TransitRealtime_Alert.Cause {
+  public var cause: TransitRealtime_Alert.Cause {
     get {return _storage._cause ?? .unknownCause}
     set {_uniqueStorage()._cause = newValue}
   }
   /// Returns true if `cause` has been explicitly set.
-  var hasCause: Bool {return _storage._cause != nil}
+  public var hasCause: Bool {return _storage._cause != nil}
   /// Clears the value of `cause`. Subsequent reads from it will return its default value.
-  mutating func clearCause() {_storage._cause = nil}
+  public mutating func clearCause() {_storage._cause = nil}
 
-  var effect: TransitRealtime_Alert.Effect {
+  public var effect: TransitRealtime_Alert.Effect {
     get {return _storage._effect ?? .unknownEffect}
     set {_uniqueStorage()._effect = newValue}
   }
   /// Returns true if `effect` has been explicitly set.
-  var hasEffect: Bool {return _storage._effect != nil}
+  public var hasEffect: Bool {return _storage._effect != nil}
   /// Clears the value of `effect`. Subsequent reads from it will return its default value.
-  mutating func clearEffect() {_storage._effect = nil}
+  public mutating func clearEffect() {_storage._effect = nil}
 
   /// The URL which provides additional information about the alert.
-  var url: TransitRealtime_TranslatedString {
+  public var url: TransitRealtime_TranslatedString {
     get {return _storage._url ?? TransitRealtime_TranslatedString()}
     set {_uniqueStorage()._url = newValue}
   }
   /// Returns true if `url` has been explicitly set.
-  var hasURL: Bool {return _storage._url != nil}
+  public var hasURL: Bool {return _storage._url != nil}
   /// Clears the value of `url`. Subsequent reads from it will return its default value.
-  mutating func clearURL() {_storage._url = nil}
+  public mutating func clearURL() {_storage._url = nil}
 
   /// Alert header. Contains a short summary of the alert text as plain-text.
-  var headerText: TransitRealtime_TranslatedString {
+  public var headerText: TransitRealtime_TranslatedString {
     get {return _storage._headerText ?? TransitRealtime_TranslatedString()}
     set {_uniqueStorage()._headerText = newValue}
   }
   /// Returns true if `headerText` has been explicitly set.
-  var hasHeaderText: Bool {return _storage._headerText != nil}
+  public var hasHeaderText: Bool {return _storage._headerText != nil}
   /// Clears the value of `headerText`. Subsequent reads from it will return its default value.
-  mutating func clearHeaderText() {_storage._headerText = nil}
+  public mutating func clearHeaderText() {_storage._headerText = nil}
 
   /// Full description for the alert as plain-text. The information in the
   /// description should add to the information of the header.
-  var descriptionText: TransitRealtime_TranslatedString {
+  public var descriptionText: TransitRealtime_TranslatedString {
     get {return _storage._descriptionText ?? TransitRealtime_TranslatedString()}
     set {_uniqueStorage()._descriptionText = newValue}
   }
   /// Returns true if `descriptionText` has been explicitly set.
-  var hasDescriptionText: Bool {return _storage._descriptionText != nil}
+  public var hasDescriptionText: Bool {return _storage._descriptionText != nil}
   /// Clears the value of `descriptionText`. Subsequent reads from it will return its default value.
-  mutating func clearDescriptionText() {_storage._descriptionText = nil}
+  public mutating func clearDescriptionText() {_storage._descriptionText = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Cause of this alert.
-  enum Cause: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Cause: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case unknownCause // = 1
 
     /// Not machine-representable.
@@ -1236,11 +1236,11 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
     case policeActivity // = 11
     case medicalEmergency // = 12
 
-    init() {
+    public init() {
       self = .unknownCause
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .unknownCause
       case 2: self = .otherCause
@@ -1258,7 +1258,7 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .unknownCause: return 1
       case .otherCause: return 2
@@ -1278,8 +1278,8 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
   }
 
   /// What is the effect of this problem on the affected entity.
-  enum Effect: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Effect: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case noService // = 1
     case reducedService // = 2
 
@@ -1294,11 +1294,11 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
     case unknownEffect // = 8
     case stopMoved // = 9
 
-    init() {
+    public init() {
       self = .noService
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .noService
       case 2: self = .reducedService
@@ -1313,7 +1313,7 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .noService: return 1
       case .reducedService: return 2
@@ -1329,7 +1329,7 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
 
   }
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1347,7 +1347,7 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1371,7 +1371,7 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._activePeriod.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._activePeriod, fieldNumber: 1)
@@ -1399,42 +1399,42 @@ struct TransitRealtime_Alert: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// A time interval. The interval is considered active at time 't' if 't' is
 /// greater than or equal to the start time and less than the end time.
-struct TransitRealtime_TimeRange: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".TimeRange"
+public struct TransitRealtime_TimeRange: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".TimeRange"
 
   /// Start time, in POSIX time (i.e., number of seconds since January 1st 1970
   /// 00:00:00 UTC).
   /// If missing, the interval starts at minus infinity.
-  var start: UInt64 {
+  public var start: UInt64 {
     get {return _start ?? 0}
     set {_start = newValue}
   }
   /// Returns true if `start` has been explicitly set.
-  var hasStart: Bool {return self._start != nil}
+  public var hasStart: Bool {return self._start != nil}
   /// Clears the value of `start`. Subsequent reads from it will return its default value.
-  mutating func clearStart() {self._start = nil}
+  public mutating func clearStart() {self._start = nil}
 
   /// End time, in POSIX time (i.e., number of seconds since January 1st 1970
   /// 00:00:00 UTC).
   /// If missing, the interval ends at plus infinity.
-  var end: UInt64 {
+  public var end: UInt64 {
     get {return _end ?? 0}
     set {_end = newValue}
   }
   /// Returns true if `end` has been explicitly set.
-  var hasEnd: Bool {return self._end != nil}
+  public var hasEnd: Bool {return self._end != nil}
   /// Clears the value of `end`. Subsequent reads from it will return its default value.
-  mutating func clearEnd() {self._end = nil}
+  public mutating func clearEnd() {self._end = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1445,7 +1445,7 @@ struct TransitRealtime_TimeRange: SwiftProtobuf.Message, SwiftProtobuf.Extensibl
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularUInt64Field(value: &self._start)
@@ -1461,7 +1461,7 @@ struct TransitRealtime_TimeRange: SwiftProtobuf.Message, SwiftProtobuf.Extensibl
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._start {
       try visitor.visitSingularUInt64Field(value: v, fieldNumber: 1)
     }
@@ -1472,72 +1472,72 @@ struct TransitRealtime_TimeRange: SwiftProtobuf.Message, SwiftProtobuf.Extensibl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _start: UInt64? = nil
   fileprivate var _end: UInt64? = nil
 }
 
 /// A position.
-struct TransitRealtime_Position: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".Position"
+public struct TransitRealtime_Position: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".Position"
 
   /// Degrees North, in the WGS-84 coordinate system.
-  var latitude: Float {
+  public var latitude: Float {
     get {return _latitude ?? 0}
     set {_latitude = newValue}
   }
   /// Returns true if `latitude` has been explicitly set.
-  var hasLatitude: Bool {return self._latitude != nil}
+  public var hasLatitude: Bool {return self._latitude != nil}
   /// Clears the value of `latitude`. Subsequent reads from it will return its default value.
-  mutating func clearLatitude() {self._latitude = nil}
+  public mutating func clearLatitude() {self._latitude = nil}
 
   /// Degrees East, in the WGS-84 coordinate system.
-  var longitude: Float {
+  public var longitude: Float {
     get {return _longitude ?? 0}
     set {_longitude = newValue}
   }
   /// Returns true if `longitude` has been explicitly set.
-  var hasLongitude: Bool {return self._longitude != nil}
+  public var hasLongitude: Bool {return self._longitude != nil}
   /// Clears the value of `longitude`. Subsequent reads from it will return its default value.
-  mutating func clearLongitude() {self._longitude = nil}
+  public mutating func clearLongitude() {self._longitude = nil}
 
   /// Bearing, in degrees, clockwise from North, i.e., 0 is North and 90 is East.
   /// This can be the compass bearing, or the direction towards the next stop
   /// or intermediate location.
   /// This should not be direction deduced from the sequence of previous
   /// positions, which can be computed from previous data.
-  var bearing: Float {
+  public var bearing: Float {
     get {return _bearing ?? 0}
     set {_bearing = newValue}
   }
   /// Returns true if `bearing` has been explicitly set.
-  var hasBearing: Bool {return self._bearing != nil}
+  public var hasBearing: Bool {return self._bearing != nil}
   /// Clears the value of `bearing`. Subsequent reads from it will return its default value.
-  mutating func clearBearing() {self._bearing = nil}
+  public mutating func clearBearing() {self._bearing = nil}
 
   /// Odometer value, in meters.
-  var odometer: Double {
+  public var odometer: Double {
     get {return _odometer ?? 0}
     set {_odometer = newValue}
   }
   /// Returns true if `odometer` has been explicitly set.
-  var hasOdometer: Bool {return self._odometer != nil}
+  public var hasOdometer: Bool {return self._odometer != nil}
   /// Clears the value of `odometer`. Subsequent reads from it will return its default value.
-  mutating func clearOdometer() {self._odometer = nil}
+  public mutating func clearOdometer() {self._odometer = nil}
 
   /// Momentary speed measured by the vehicle, in meters per second.
-  var speed: Float {
+  public var speed: Float {
     get {return _speed ?? 0}
     set {_speed = newValue}
   }
   /// Returns true if `speed` has been explicitly set.
-  var hasSpeed: Bool {return self._speed != nil}
+  public var hasSpeed: Bool {return self._speed != nil}
   /// Clears the value of `speed`. Subsequent reads from it will return its default value.
-  mutating func clearSpeed() {self._speed = nil}
+  public mutating func clearSpeed() {self._speed = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1550,7 +1550,7 @@ struct TransitRealtime_Position: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularFloatField(value: &self._latitude)
@@ -1569,7 +1569,7 @@ struct TransitRealtime_Position: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._latitude {
       try visitor.visitSingularFloatField(value: v, fieldNumber: 1)
     }
@@ -1589,7 +1589,7 @@ struct TransitRealtime_Position: SwiftProtobuf.Message, SwiftProtobuf.Extensible
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _latitude: Float? = nil
   fileprivate var _longitude: Float? = nil
   fileprivate var _bearing: Float? = nil
@@ -1606,44 +1606,44 @@ struct TransitRealtime_Position: SwiftProtobuf.Message, SwiftProtobuf.Extensible
 ///   set. Note that if the trip_id is not known, then stop sequence ids in
 ///   TripUpdate are not sufficient, and stop_ids must be provided as well. In
 ///   addition, absolute arrival/departure times must be provided.
-struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".TripDescriptor"
+public struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".TripDescriptor"
 
   /// The trip_id from the GTFS feed that this selector refers to.
   /// For non frequency-based trips, this field is enough to uniquely identify
   /// the trip. For frequency-based trip, start_time and start_date might also be
   /// necessary.
-  var tripID: String {
+  public var tripID: String {
     get {return _tripID ?? String()}
     set {_tripID = newValue}
   }
   /// Returns true if `tripID` has been explicitly set.
-  var hasTripID: Bool {return self._tripID != nil}
+  public var hasTripID: Bool {return self._tripID != nil}
   /// Clears the value of `tripID`. Subsequent reads from it will return its default value.
-  mutating func clearTripID() {self._tripID = nil}
+  public mutating func clearTripID() {self._tripID = nil}
 
   /// The route_id from the GTFS that this selector refers to.
-  var routeID: String {
+  public var routeID: String {
     get {return _routeID ?? String()}
     set {_routeID = newValue}
   }
   /// Returns true if `routeID` has been explicitly set.
-  var hasRouteID: Bool {return self._routeID != nil}
+  public var hasRouteID: Bool {return self._routeID != nil}
   /// Clears the value of `routeID`. Subsequent reads from it will return its default value.
-  mutating func clearRouteID() {self._routeID = nil}
+  public mutating func clearRouteID() {self._routeID = nil}
 
   /// The direction_id from the GTFS feed trips.txt file, indicating the
   /// direction of travel for trips this selector refers to. This field is
   /// still experimental, and subject to change. It may be formally adopted in
   /// the future.
-  var directionID: UInt32 {
+  public var directionID: UInt32 {
     get {return _directionID ?? 0}
     set {_directionID = newValue}
   }
   /// Returns true if `directionID` has been explicitly set.
-  var hasDirectionID: Bool {return self._directionID != nil}
+  public var hasDirectionID: Bool {return self._directionID != nil}
   /// Clears the value of `directionID`. Subsequent reads from it will return its default value.
-  mutating func clearDirectionID() {self._directionID = nil}
+  public mutating func clearDirectionID() {self._directionID = nil}
 
   /// The initially scheduled start time of this trip instance.
   /// When the trip_id corresponds to a non-frequency-based trip, this field
@@ -1660,14 +1660,14 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
   /// StopTimeUpdate.
   /// Format and semantics of the field is same as that of
   /// GTFS/frequencies.txt/start_time, e.g., 11:15:35 or 25:15:35.
-  var startTime: String {
+  public var startTime: String {
     get {return _startTime ?? String()}
     set {_startTime = newValue}
   }
   /// Returns true if `startTime` has been explicitly set.
-  var hasStartTime: Bool {return self._startTime != nil}
+  public var hasStartTime: Bool {return self._startTime != nil}
   /// Clears the value of `startTime`. Subsequent reads from it will return its default value.
-  mutating func clearStartTime() {self._startTime = nil}
+  public mutating func clearStartTime() {self._startTime = nil}
 
   /// The scheduled start date of this trip instance.
   /// Must be provided to disambiguate trips that are so late as to collide with
@@ -1679,31 +1679,31 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
   /// schedule where a vehicle that is one hour late is not considered to be
   /// related to schedule anymore.
   /// In YYYYMMDD format.
-  var startDate: String {
+  public var startDate: String {
     get {return _startDate ?? String()}
     set {_startDate = newValue}
   }
   /// Returns true if `startDate` has been explicitly set.
-  var hasStartDate: Bool {return self._startDate != nil}
+  public var hasStartDate: Bool {return self._startDate != nil}
   /// Clears the value of `startDate`. Subsequent reads from it will return its default value.
-  mutating func clearStartDate() {self._startDate = nil}
+  public mutating func clearStartDate() {self._startDate = nil}
 
-  var scheduleRelationship: TransitRealtime_TripDescriptor.ScheduleRelationship {
+  public var scheduleRelationship: TransitRealtime_TripDescriptor.ScheduleRelationship {
     get {return _scheduleRelationship ?? .scheduled}
     set {_scheduleRelationship = newValue}
   }
   /// Returns true if `scheduleRelationship` has been explicitly set.
-  var hasScheduleRelationship: Bool {return self._scheduleRelationship != nil}
+  public var hasScheduleRelationship: Bool {return self._scheduleRelationship != nil}
   /// Clears the value of `scheduleRelationship`. Subsequent reads from it will return its default value.
-  mutating func clearScheduleRelationship() {self._scheduleRelationship = nil}
+  public mutating func clearScheduleRelationship() {self._scheduleRelationship = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The relation between this trip and the static schedule. If a trip is done
   /// in accordance with temporary schedule, not reflected in GTFS, then it
   /// shouldn't be marked as SCHEDULED, but likely as ADDED.
-  enum ScheduleRelationship: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum ScheduleRelationship: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
 
     /// Trip that is running in accordance with its GTFS schedule, or is close
     /// enough to the scheduled trip to be associated with it.
@@ -1721,11 +1721,11 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
     /// A trip that existed in the schedule but was removed.
     case canceled // = 3
 
-    init() {
+    public init() {
       self = .scheduled
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .scheduled
       case 1: self = .added
@@ -1735,7 +1735,7 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .scheduled: return 0
       case .added: return 1
@@ -1746,7 +1746,7 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
 
   }
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1757,7 +1757,7 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._tripID)
@@ -1777,7 +1777,7 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._tripID {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
@@ -1800,7 +1800,7 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _tripID: String? = nil
   fileprivate var _routeID: String? = nil
   fileprivate var _directionID: UInt32? = nil
@@ -1810,45 +1810,45 @@ struct TransitRealtime_TripDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Exte
 }
 
 /// Identification information for the vehicle performing the trip.
-struct TransitRealtime_VehicleDescriptor: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".VehicleDescriptor"
+public struct TransitRealtime_VehicleDescriptor: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".VehicleDescriptor"
 
   /// Internal system identification of the vehicle. Should be unique per
   /// vehicle, and can be used for tracking the vehicle as it proceeds through
   /// the system.
-  var id: String {
+  public var id: String {
     get {return _id ?? String()}
     set {_id = newValue}
   }
   /// Returns true if `id` has been explicitly set.
-  var hasID: Bool {return self._id != nil}
+  public var hasID: Bool {return self._id != nil}
   /// Clears the value of `id`. Subsequent reads from it will return its default value.
-  mutating func clearID() {self._id = nil}
+  public mutating func clearID() {self._id = nil}
 
   /// User visible label, i.e., something that must be shown to the passenger to
   /// help identify the correct vehicle.
-  var label: String {
+  public var label: String {
     get {return _label ?? String()}
     set {_label = newValue}
   }
   /// Returns true if `label` has been explicitly set.
-  var hasLabel: Bool {return self._label != nil}
+  public var hasLabel: Bool {return self._label != nil}
   /// Clears the value of `label`. Subsequent reads from it will return its default value.
-  mutating func clearLabel() {self._label = nil}
+  public mutating func clearLabel() {self._label = nil}
 
   /// The license plate of the vehicle.
-  var licensePlate: String {
+  public var licensePlate: String {
     get {return _licensePlate ?? String()}
     set {_licensePlate = newValue}
   }
   /// Returns true if `licensePlate` has been explicitly set.
-  var hasLicensePlate: Bool {return self._licensePlate != nil}
+  public var hasLicensePlate: Bool {return self._licensePlate != nil}
   /// Clears the value of `licensePlate`. Subsequent reads from it will return its default value.
-  mutating func clearLicensePlate() {self._licensePlate = nil}
+  public mutating func clearLicensePlate() {self._licensePlate = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1859,7 +1859,7 @@ struct TransitRealtime_VehicleDescriptor: SwiftProtobuf.Message, SwiftProtobuf.E
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._id)
@@ -1876,7 +1876,7 @@ struct TransitRealtime_VehicleDescriptor: SwiftProtobuf.Message, SwiftProtobuf.E
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._id {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
@@ -1890,69 +1890,69 @@ struct TransitRealtime_VehicleDescriptor: SwiftProtobuf.Message, SwiftProtobuf.E
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _id: String? = nil
   fileprivate var _label: String? = nil
   fileprivate var _licensePlate: String? = nil
 }
 
 /// A selector for an entity in a GTFS feed.
-struct TransitRealtime_EntitySelector: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".EntitySelector"
+public struct TransitRealtime_EntitySelector: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".EntitySelector"
 
   /// The values of the fields should correspond to the appropriate fields in the
   /// GTFS feed.
   /// At least one specifier must be given. If several are given, then the
   /// matching has to apply to all the given specifiers.
-  var agencyID: String {
+  public var agencyID: String {
     get {return _storage._agencyID ?? String()}
     set {_uniqueStorage()._agencyID = newValue}
   }
   /// Returns true if `agencyID` has been explicitly set.
-  var hasAgencyID: Bool {return _storage._agencyID != nil}
+  public var hasAgencyID: Bool {return _storage._agencyID != nil}
   /// Clears the value of `agencyID`. Subsequent reads from it will return its default value.
-  mutating func clearAgencyID() {_storage._agencyID = nil}
+  public mutating func clearAgencyID() {_storage._agencyID = nil}
 
-  var routeID: String {
+  public var routeID: String {
     get {return _storage._routeID ?? String()}
     set {_uniqueStorage()._routeID = newValue}
   }
   /// Returns true if `routeID` has been explicitly set.
-  var hasRouteID: Bool {return _storage._routeID != nil}
+  public var hasRouteID: Bool {return _storage._routeID != nil}
   /// Clears the value of `routeID`. Subsequent reads from it will return its default value.
-  mutating func clearRouteID() {_storage._routeID = nil}
+  public mutating func clearRouteID() {_storage._routeID = nil}
 
   /// corresponds to route_type in GTFS.
-  var routeType: Int32 {
+  public var routeType: Int32 {
     get {return _storage._routeType ?? 0}
     set {_uniqueStorage()._routeType = newValue}
   }
   /// Returns true if `routeType` has been explicitly set.
-  var hasRouteType: Bool {return _storage._routeType != nil}
+  public var hasRouteType: Bool {return _storage._routeType != nil}
   /// Clears the value of `routeType`. Subsequent reads from it will return its default value.
-  mutating func clearRouteType() {_storage._routeType = nil}
+  public mutating func clearRouteType() {_storage._routeType = nil}
 
-  var trip: TransitRealtime_TripDescriptor {
+  public var trip: TransitRealtime_TripDescriptor {
     get {return _storage._trip ?? TransitRealtime_TripDescriptor()}
     set {_uniqueStorage()._trip = newValue}
   }
   /// Returns true if `trip` has been explicitly set.
-  var hasTrip: Bool {return _storage._trip != nil}
+  public var hasTrip: Bool {return _storage._trip != nil}
   /// Clears the value of `trip`. Subsequent reads from it will return its default value.
-  mutating func clearTrip() {_storage._trip = nil}
+  public mutating func clearTrip() {_storage._trip = nil}
 
-  var stopID: String {
+  public var stopID: String {
     get {return _storage._stopID ?? String()}
     set {_uniqueStorage()._stopID = newValue}
   }
   /// Returns true if `stopID` has been explicitly set.
-  var hasStopID: Bool {return _storage._stopID != nil}
+  public var hasStopID: Bool {return _storage._stopID != nil}
   /// Clears the value of `stopID`. Subsequent reads from it will return its default value.
-  mutating func clearStopID() {_storage._stopID = nil}
+  public mutating func clearStopID() {_storage._stopID = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1966,7 +1966,7 @@ struct TransitRealtime_EntitySelector: SwiftProtobuf.Message, SwiftProtobuf.Exte
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1988,7 +1988,7 @@ struct TransitRealtime_EntitySelector: SwiftProtobuf.Message, SwiftProtobuf.Exte
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._agencyID {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
@@ -2010,7 +2010,7 @@ struct TransitRealtime_EntitySelector: SwiftProtobuf.Message, SwiftProtobuf.Exte
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
@@ -2024,42 +2024,42 @@ struct TransitRealtime_EntitySelector: SwiftProtobuf.Message, SwiftProtobuf.Exte
 ///    translation, the first matching translation is picked.
 /// 3. If some translation has an unspecified language code, that translation is
 ///    picked.
-struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".TranslatedString"
+public struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".TranslatedString"
 
   /// At least one translation must be provided.
-  var translation: [TransitRealtime_TranslatedString.Translation] = []
+  public var translation: [TransitRealtime_TranslatedString.Translation] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Translation: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-    static let protoMessageName: String = TransitRealtime_TranslatedString.protoMessageName + ".Translation"
+  public struct Translation: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+    public static let protoMessageName: String = TransitRealtime_TranslatedString.protoMessageName + ".Translation"
 
     /// A UTF-8 string containing the message.
-    var text: String {
+    public var text: String {
       get {return _text ?? String()}
       set {_text = newValue}
     }
     /// Returns true if `text` has been explicitly set.
-    var hasText: Bool {return self._text != nil}
+    public var hasText: Bool {return self._text != nil}
     /// Clears the value of `text`. Subsequent reads from it will return its default value.
-    mutating func clearText() {self._text = nil}
+    public mutating func clearText() {self._text = nil}
 
     /// BCP-47 language code. Can be omitted if the language is unknown or if
     /// no i18n is done at all for the feed. At most one translation is
     /// allowed to have an unspecified language tag.
-    var language: String {
+    public var language: String {
       get {return _language ?? String()}
       set {_language = newValue}
     }
     /// Returns true if `language` has been explicitly set.
-    var hasLanguage: Bool {return self._language != nil}
+    public var hasLanguage: Bool {return self._language != nil}
     /// Clears the value of `language`. Subsequent reads from it will return its default value.
-    mutating func clearLanguage() {self._language = nil}
+    public mutating func clearLanguage() {self._language = nil}
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    public init() {}
 
     public var isInitialized: Bool {
       if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -2071,7 +2071,7 @@ struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.Ex
     /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
     /// initializers are defined in the SwiftProtobuf library. See the Message and
     /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularStringField(value: &self._text)
@@ -2087,7 +2087,7 @@ struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.Ex
     /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = self._text {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
       }
@@ -2098,12 +2098,12 @@ struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.Ex
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+    public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     fileprivate var _text: String? = nil
     fileprivate var _language: String? = nil
   }
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -2115,7 +2115,7 @@ struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.Ex
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeRepeatedMessageField(value: &self.translation)
@@ -2130,7 +2130,7 @@ struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.Ex
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.translation.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.translation, fieldNumber: 1)
     }
@@ -2138,7 +2138,7 @@ struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.Ex
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -2146,7 +2146,7 @@ struct TransitRealtime_TranslatedString: SwiftProtobuf.Message, SwiftProtobuf.Ex
 fileprivate let _protobuf_package = "transit_realtime"
 
 extension TransitRealtime_FeedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "header"),
     2: .same(proto: "entity"),
   ]
@@ -2172,7 +2172,7 @@ extension TransitRealtime_FeedMessage: SwiftProtobuf._MessageImplementationBase,
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_FeedMessage) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_FeedMessage) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2190,13 +2190,13 @@ extension TransitRealtime_FeedMessage: SwiftProtobuf._MessageImplementationBase,
 }
 
 extension TransitRealtime_FeedHeader: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "gtfs_realtime_version"),
     2: .same(proto: "incrementality"),
     3: .same(proto: "timestamp"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_FeedHeader) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_FeedHeader) -> Bool {
     if self._gtfsRealtimeVersion != other._gtfsRealtimeVersion {return false}
     if self._incrementality != other._incrementality {return false}
     if self._timestamp != other._timestamp {return false}
@@ -2207,14 +2207,14 @@ extension TransitRealtime_FeedHeader: SwiftProtobuf._MessageImplementationBase, 
 }
 
 extension TransitRealtime_FeedHeader.Incrementality: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "FULL_DATASET"),
     1: .same(proto: "DIFFERENTIAL"),
   ]
 }
 
 extension TransitRealtime_FeedEntity: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .standard(proto: "is_deleted"),
     3: .standard(proto: "trip_update"),
@@ -2249,7 +2249,7 @@ extension TransitRealtime_FeedEntity: SwiftProtobuf._MessageImplementationBase, 
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_FeedEntity) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_FeedEntity) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2270,7 +2270,7 @@ extension TransitRealtime_FeedEntity: SwiftProtobuf._MessageImplementationBase, 
 }
 
 extension TransitRealtime_TripUpdate: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "trip"),
     3: .same(proto: "vehicle"),
     2: .standard(proto: "stop_time_update"),
@@ -2305,7 +2305,7 @@ extension TransitRealtime_TripUpdate: SwiftProtobuf._MessageImplementationBase, 
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_TripUpdate) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_TripUpdate) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2326,13 +2326,13 @@ extension TransitRealtime_TripUpdate: SwiftProtobuf._MessageImplementationBase, 
 }
 
 extension TransitRealtime_TripUpdate.StopTimeEvent: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "delay"),
     2: .same(proto: "time"),
     3: .same(proto: "uncertainty"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_TripUpdate.StopTimeEvent) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_TripUpdate.StopTimeEvent) -> Bool {
     if self._delay != other._delay {return false}
     if self._time != other._time {return false}
     if self._uncertainty != other._uncertainty {return false}
@@ -2343,7 +2343,7 @@ extension TransitRealtime_TripUpdate.StopTimeEvent: SwiftProtobuf._MessageImplem
 }
 
 extension TransitRealtime_TripUpdate.StopTimeUpdate: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "stop_sequence"),
     4: .standard(proto: "stop_id"),
     2: .same(proto: "arrival"),
@@ -2378,7 +2378,7 @@ extension TransitRealtime_TripUpdate.StopTimeUpdate: SwiftProtobuf._MessageImple
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_TripUpdate.StopTimeUpdate) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_TripUpdate.StopTimeUpdate) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2399,7 +2399,7 @@ extension TransitRealtime_TripUpdate.StopTimeUpdate: SwiftProtobuf._MessageImple
 }
 
 extension TransitRealtime_TripUpdate.StopTimeUpdate.ScheduleRelationship: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SCHEDULED"),
     1: .same(proto: "SKIPPED"),
     2: .same(proto: "NO_DATA"),
@@ -2407,7 +2407,7 @@ extension TransitRealtime_TripUpdate.StopTimeUpdate.ScheduleRelationship: SwiftP
 }
 
 extension TransitRealtime_VehiclePosition: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "trip"),
     8: .same(proto: "vehicle"),
     2: .same(proto: "position"),
@@ -2454,7 +2454,7 @@ extension TransitRealtime_VehiclePosition: SwiftProtobuf._MessageImplementationB
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_VehiclePosition) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_VehiclePosition) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2479,7 +2479,7 @@ extension TransitRealtime_VehiclePosition: SwiftProtobuf._MessageImplementationB
 }
 
 extension TransitRealtime_VehiclePosition.VehicleStopStatus: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "INCOMING_AT"),
     1: .same(proto: "STOPPED_AT"),
     2: .same(proto: "IN_TRANSIT_TO"),
@@ -2487,7 +2487,7 @@ extension TransitRealtime_VehiclePosition.VehicleStopStatus: SwiftProtobuf._Prot
 }
 
 extension TransitRealtime_VehiclePosition.CongestionLevel: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "UNKNOWN_CONGESTION_LEVEL"),
     1: .same(proto: "RUNNING_SMOOTHLY"),
     2: .same(proto: "STOP_AND_GO"),
@@ -2497,7 +2497,7 @@ extension TransitRealtime_VehiclePosition.CongestionLevel: SwiftProtobuf._ProtoN
 }
 
 extension TransitRealtime_VehiclePosition.OccupancyStatus: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "EMPTY"),
     1: .same(proto: "MANY_SEATS_AVAILABLE"),
     2: .same(proto: "FEW_SEATS_AVAILABLE"),
@@ -2509,7 +2509,7 @@ extension TransitRealtime_VehiclePosition.OccupancyStatus: SwiftProtobuf._ProtoN
 }
 
 extension TransitRealtime_Alert: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "active_period"),
     5: .standard(proto: "informed_entity"),
     6: .same(proto: "cause"),
@@ -2550,7 +2550,7 @@ extension TransitRealtime_Alert: SwiftProtobuf._MessageImplementationBase, Swift
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_Alert) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_Alert) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2573,7 +2573,7 @@ extension TransitRealtime_Alert: SwiftProtobuf._MessageImplementationBase, Swift
 }
 
 extension TransitRealtime_Alert.Cause: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "UNKNOWN_CAUSE"),
     2: .same(proto: "OTHER_CAUSE"),
     3: .same(proto: "TECHNICAL_PROBLEM"),
@@ -2590,7 +2590,7 @@ extension TransitRealtime_Alert.Cause: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension TransitRealtime_Alert.Effect: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "NO_SERVICE"),
     2: .same(proto: "REDUCED_SERVICE"),
     3: .same(proto: "SIGNIFICANT_DELAYS"),
@@ -2604,12 +2604,12 @@ extension TransitRealtime_Alert.Effect: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension TransitRealtime_TimeRange: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "start"),
     2: .same(proto: "end"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_TimeRange) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_TimeRange) -> Bool {
     if self._start != other._start {return false}
     if self._end != other._end {return false}
     if unknownFields != other.unknownFields {return false}
@@ -2619,7 +2619,7 @@ extension TransitRealtime_TimeRange: SwiftProtobuf._MessageImplementationBase, S
 }
 
 extension TransitRealtime_Position: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "latitude"),
     2: .same(proto: "longitude"),
     3: .same(proto: "bearing"),
@@ -2627,7 +2627,7 @@ extension TransitRealtime_Position: SwiftProtobuf._MessageImplementationBase, Sw
     5: .same(proto: "speed"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_Position) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_Position) -> Bool {
     if self._latitude != other._latitude {return false}
     if self._longitude != other._longitude {return false}
     if self._bearing != other._bearing {return false}
@@ -2640,7 +2640,7 @@ extension TransitRealtime_Position: SwiftProtobuf._MessageImplementationBase, Sw
 }
 
 extension TransitRealtime_TripDescriptor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "trip_id"),
     5: .standard(proto: "route_id"),
     6: .standard(proto: "direction_id"),
@@ -2649,7 +2649,7 @@ extension TransitRealtime_TripDescriptor: SwiftProtobuf._MessageImplementationBa
     4: .standard(proto: "schedule_relationship"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_TripDescriptor) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_TripDescriptor) -> Bool {
     if self._tripID != other._tripID {return false}
     if self._routeID != other._routeID {return false}
     if self._directionID != other._directionID {return false}
@@ -2663,7 +2663,7 @@ extension TransitRealtime_TripDescriptor: SwiftProtobuf._MessageImplementationBa
 }
 
 extension TransitRealtime_TripDescriptor.ScheduleRelationship: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SCHEDULED"),
     1: .same(proto: "ADDED"),
     2: .same(proto: "UNSCHEDULED"),
@@ -2672,13 +2672,13 @@ extension TransitRealtime_TripDescriptor.ScheduleRelationship: SwiftProtobuf._Pr
 }
 
 extension TransitRealtime_VehicleDescriptor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "label"),
     3: .standard(proto: "license_plate"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_VehicleDescriptor) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_VehicleDescriptor) -> Bool {
     if self._id != other._id {return false}
     if self._label != other._label {return false}
     if self._licensePlate != other._licensePlate {return false}
@@ -2689,7 +2689,7 @@ extension TransitRealtime_VehicleDescriptor: SwiftProtobuf._MessageImplementatio
 }
 
 extension TransitRealtime_EntitySelector: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "agency_id"),
     2: .standard(proto: "route_id"),
     3: .standard(proto: "route_type"),
@@ -2724,7 +2724,7 @@ extension TransitRealtime_EntitySelector: SwiftProtobuf._MessageImplementationBa
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_EntitySelector) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_EntitySelector) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2745,11 +2745,11 @@ extension TransitRealtime_EntitySelector: SwiftProtobuf._MessageImplementationBa
 }
 
 extension TransitRealtime_TranslatedString: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "translation"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_TranslatedString) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_TranslatedString) -> Bool {
     if self.translation != other.translation {return false}
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
@@ -2758,12 +2758,12 @@ extension TransitRealtime_TranslatedString: SwiftProtobuf._MessageImplementation
 }
 
 extension TransitRealtime_TranslatedString.Translation: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "text"),
     2: .same(proto: "language"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: TransitRealtime_TranslatedString.Translation) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TransitRealtime_TranslatedString.Translation) -> Bool {
     if self._text != other._text {return false}
     if self._language != other._language {return false}
     if unknownFields != other.unknownFields {return false}

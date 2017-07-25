@@ -23,34 +23,34 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct TripReplacementPeriod: SwiftProtobuf.Message {
-  static let protoMessageName: String = "TripReplacementPeriod"
+public struct TripReplacementPeriod: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "TripReplacementPeriod"
 
   /// The replacement period is for this route
-  var routeID: String {
+  public var routeID: String {
     get {return _storage._routeID ?? String()}
     set {_uniqueStorage()._routeID = newValue}
   }
   /// Returns true if `routeID` has been explicitly set.
-  var hasRouteID: Bool {return _storage._routeID != nil}
+  public var hasRouteID: Bool {return _storage._routeID != nil}
   /// Clears the value of `routeID`. Subsequent reads from it will return its default value.
-  mutating func clearRouteID() {_storage._routeID = nil}
+  public mutating func clearRouteID() {_storage._routeID = nil}
 
   /// The start time is omitted, the end time is currently now + 30 minutes for
   ///
   /// all routes of the A division
-  var replacementPeriod: TransitRealtime_TimeRange {
+  public var replacementPeriod: TransitRealtime_TimeRange {
     get {return _storage._replacementPeriod ?? TransitRealtime_TimeRange()}
     set {_uniqueStorage()._replacementPeriod = newValue}
   }
   /// Returns true if `replacementPeriod` has been explicitly set.
-  var hasReplacementPeriod: Bool {return _storage._replacementPeriod != nil}
+  public var hasReplacementPeriod: Bool {return _storage._replacementPeriod != nil}
   /// Clears the value of `replacementPeriod`. Subsequent reads from it will return its default value.
-  mutating func clearReplacementPeriod() {_storage._replacementPeriod = nil}
+  public mutating func clearReplacementPeriod() {_storage._replacementPeriod = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
@@ -63,7 +63,7 @@ struct TripReplacementPeriod: SwiftProtobuf.Message {
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -80,7 +80,7 @@ struct TripReplacementPeriod: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._routeID {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
@@ -96,20 +96,20 @@ struct TripReplacementPeriod: SwiftProtobuf.Message {
 }
 
 /// NYCT Subway extensions for the feed header
-struct NyctFeedHeader: SwiftProtobuf.Message {
-  static let protoMessageName: String = "NyctFeedHeader"
+public struct NyctFeedHeader: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "NyctFeedHeader"
 
   /// Version of the NYCT Subway extensions
   ///
   /// The current version is 1.0
-  var nyctSubwayVersion: String {
+  public var nyctSubwayVersion: String {
     get {return _nyctSubwayVersion ?? String()}
     set {_nyctSubwayVersion = newValue}
   }
   /// Returns true if `nyctSubwayVersion` has been explicitly set.
-  var hasNyctSubwayVersion: Bool {return self._nyctSubwayVersion != nil}
+  public var hasNyctSubwayVersion: Bool {return self._nyctSubwayVersion != nil}
   /// Clears the value of `nyctSubwayVersion`. Subsequent reads from it will return its default value.
-  mutating func clearNyctSubwayVersion() {self._nyctSubwayVersion = nil}
+  public mutating func clearNyctSubwayVersion() {self._nyctSubwayVersion = nil}
 
   /// For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
   ///
@@ -126,11 +126,11 @@ struct NyctFeedHeader: SwiftProtobuf.Message {
   /// a list of the routes where the trips in the feed replace all
   ///
   /// scheduled trips within the replacement period.
-  var tripReplacementPeriod: [TripReplacementPeriod] = []
+  public var tripReplacementPeriod: [TripReplacementPeriod] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   public var isInitialized: Bool {
     if self._nyctSubwayVersion == nil {return false}
@@ -142,7 +142,7 @@ struct NyctFeedHeader: SwiftProtobuf.Message {
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._nyctSubwayVersion)
@@ -156,7 +156,7 @@ struct NyctFeedHeader: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._nyctSubwayVersion {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
@@ -170,8 +170,8 @@ struct NyctFeedHeader: SwiftProtobuf.Message {
 }
 
 /// NYCT Subway extensions for the trip descriptor
-struct NyctTripDescriptor: SwiftProtobuf.Message {
-  static let protoMessageName: String = "NyctTripDescriptor"
+public struct NyctTripDescriptor: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "NyctTripDescriptor"
 
   /// The nyct_train_id is meant for internal use only. It provides an
   ///
@@ -214,14 +214,14 @@ struct NyctTripDescriptor: SwiftProtobuf.Message {
   /// is followed by a three character "Origin Location" / "Destination
   ///
   /// Location"
-  var trainID: String {
+  public var trainID: String {
     get {return _trainID ?? String()}
     set {_trainID = newValue}
   }
   /// Returns true if `trainID` has been explicitly set.
-  var hasTrainID: Bool {return self._trainID != nil}
+  public var hasTrainID: Bool {return self._trainID != nil}
   /// Clears the value of `trainID`. Subsequent reads from it will return its default value.
-  mutating func clearTrainID() {self._trainID = nil}
+  public mutating func clearTrainID() {self._trainID = nil}
 
   /// This trip has been assigned to a physical train. If true, this trip is
   ///
@@ -248,14 +248,14 @@ struct NyctTripDescriptor: SwiftProtobuf.Message {
   /// to a storage location or assigned a nyct_train_id when a determination for
   ///
   /// service is made.
-  var isAssigned: Bool {
+  public var isAssigned: Bool {
     get {return _isAssigned ?? false}
     set {_isAssigned = newValue}
   }
   /// Returns true if `isAssigned` has been explicitly set.
-  var hasIsAssigned: Bool {return self._isAssigned != nil}
+  public var hasIsAssigned: Bool {return self._isAssigned != nil}
   /// Clears the value of `isAssigned`. Subsequent reads from it will return its default value.
-  mutating func clearIsAssigned() {self._isAssigned = nil}
+  public mutating func clearIsAssigned() {self._isAssigned = nil}
 
   /// Uptown and Bronx-bound trains are moving NORTH.
   ///
@@ -270,30 +270,30 @@ struct NyctTripDescriptor: SwiftProtobuf.Message {
   ///
   ///
   /// EAST and WEST are not used currently.
-  var direction: NyctTripDescriptor.Direction {
+  public var direction: NyctTripDescriptor.Direction {
     get {return _direction ?? .north}
     set {_direction = newValue}
   }
   /// Returns true if `direction` has been explicitly set.
-  var hasDirection: Bool {return self._direction != nil}
+  public var hasDirection: Bool {return self._direction != nil}
   /// Clears the value of `direction`. Subsequent reads from it will return its default value.
-  mutating func clearDirection() {self._direction = nil}
+  public mutating func clearDirection() {self._direction = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The direction the train is moving.
-  enum Direction: SwiftProtobuf.Enum {
-    typealias RawValue = Int
+  public enum Direction: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
     case north // = 1
     case east // = 2
     case south // = 3
     case west // = 4
 
-    init() {
+    public init() {
       self = .north
     }
 
-    init?(rawValue: Int) {
+    public init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .north
       case 2: self = .east
@@ -303,7 +303,7 @@ struct NyctTripDescriptor: SwiftProtobuf.Message {
       }
     }
 
-    var rawValue: Int {
+    public var rawValue: Int {
       switch self {
       case .north: return 1
       case .east: return 2
@@ -314,13 +314,13 @@ struct NyctTripDescriptor: SwiftProtobuf.Message {
 
   }
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._trainID)
@@ -335,7 +335,7 @@ struct NyctTripDescriptor: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._trainID {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
@@ -354,8 +354,8 @@ struct NyctTripDescriptor: SwiftProtobuf.Message {
 }
 
 /// NYCT Subway extensions for the stop time update
-struct NyctStopTimeUpdate: SwiftProtobuf.Message {
-  static let protoMessageName: String = "NyctStopTimeUpdate"
+public struct NyctStopTimeUpdate: SwiftProtobuf.Message {
+  public static let protoMessageName: String = "NyctStopTimeUpdate"
 
   /// Provides the planned station arrival track. The following is the Manhattan
   ///
@@ -386,14 +386,14 @@ struct NyctStopTimeUpdate: SwiftProtobuf.Message {
   /// 2: northbound
   ///
   /// 3: bi-directional
-  var scheduledTrack: String {
+  public var scheduledTrack: String {
     get {return _scheduledTrack ?? String()}
     set {_scheduledTrack = newValue}
   }
   /// Returns true if `scheduledTrack` has been explicitly set.
-  var hasScheduledTrack: Bool {return self._scheduledTrack != nil}
+  public var hasScheduledTrack: Bool {return self._scheduledTrack != nil}
   /// Clears the value of `scheduledTrack`. Subsequent reads from it will return its default value.
-  mutating func clearScheduledTrack() {self._scheduledTrack = nil}
+  public mutating func clearScheduledTrack() {self._scheduledTrack = nil}
 
   /// This is the actual track that the train is operating on and can be used to
   ///
@@ -420,24 +420,24 @@ struct NyctStopTimeUpdate: SwiftProtobuf.Message {
   /// schedule.  The rules engine for the 'countdown' clocks will remove this
   ///
   /// train from all schedule stations.
-  var actualTrack: String {
+  public var actualTrack: String {
     get {return _actualTrack ?? String()}
     set {_actualTrack = newValue}
   }
   /// Returns true if `actualTrack` has been explicitly set.
-  var hasActualTrack: Bool {return self._actualTrack != nil}
+  public var hasActualTrack: Bool {return self._actualTrack != nil}
   /// Clears the value of `actualTrack`. Subsequent reads from it will return its default value.
-  mutating func clearActualTrack() {self._actualTrack = nil}
+  public mutating func clearActualTrack() {self._actualTrack = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   /// Used by the decoding initializers in the SwiftProtobuf library, not generally
   /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._scheduledTrack)
@@ -451,7 +451,7 @@ struct NyctStopTimeUpdate: SwiftProtobuf.Message {
   /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._scheduledTrack {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
@@ -469,54 +469,54 @@ struct NyctStopTimeUpdate: SwiftProtobuf.Message {
 
 extension TransitRealtime_FeedHeader {
 
-  var nyctFeedHeader: NyctFeedHeader {
+  public var nyctFeedHeader: NyctFeedHeader {
     get {return getExtensionValue(ext: Extensions_nyct_feed_header) ?? NyctFeedHeader()}
     set {setExtensionValue(ext: Extensions_nyct_feed_header, value: newValue)}
   }
   /// Returns true if extension `Extensions_nyct_feed_header`
   /// has been explicitly set.
-  var hasNyctFeedHeader: Bool {
+  public var hasNyctFeedHeader: Bool {
     return hasExtensionValue(ext: Extensions_nyct_feed_header)
   }
   /// Clears the value of extension `Extensions_nyct_feed_header`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearNyctFeedHeader() {
+  public mutating func clearNyctFeedHeader() {
     clearExtensionValue(ext: Extensions_nyct_feed_header)
   }
 }
 
 extension TransitRealtime_TripDescriptor {
 
-  var nyctTripDescriptor: NyctTripDescriptor {
+  public var nyctTripDescriptor: NyctTripDescriptor {
     get {return getExtensionValue(ext: Extensions_nyct_trip_descriptor) ?? NyctTripDescriptor()}
     set {setExtensionValue(ext: Extensions_nyct_trip_descriptor, value: newValue)}
   }
   /// Returns true if extension `Extensions_nyct_trip_descriptor`
   /// has been explicitly set.
-  var hasNyctTripDescriptor: Bool {
+  public var hasNyctTripDescriptor: Bool {
     return hasExtensionValue(ext: Extensions_nyct_trip_descriptor)
   }
   /// Clears the value of extension `Extensions_nyct_trip_descriptor`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearNyctTripDescriptor() {
+  public mutating func clearNyctTripDescriptor() {
     clearExtensionValue(ext: Extensions_nyct_trip_descriptor)
   }
 }
 
 extension TransitRealtime_TripUpdate.StopTimeUpdate {
 
-  var nyctStopTimeUpdate: NyctStopTimeUpdate {
+  public var nyctStopTimeUpdate: NyctStopTimeUpdate {
     get {return getExtensionValue(ext: Extensions_nyct_stop_time_update) ?? NyctStopTimeUpdate()}
     set {setExtensionValue(ext: Extensions_nyct_stop_time_update, value: newValue)}
   }
   /// Returns true if extension `Extensions_nyct_stop_time_update`
   /// has been explicitly set.
-  var hasNyctStopTimeUpdate: Bool {
+  public var hasNyctStopTimeUpdate: Bool {
     return hasExtensionValue(ext: Extensions_nyct_stop_time_update)
   }
   /// Clears the value of extension `Extensions_nyct_stop_time_update`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearNyctStopTimeUpdate() {
+  public mutating func clearNyctStopTimeUpdate() {
     clearExtensionValue(ext: Extensions_nyct_stop_time_update)
   }
 
@@ -526,7 +526,7 @@ extension TransitRealtime_TripUpdate.StopTimeUpdate {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let NyctSubway_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+public let NyctSubway_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_nyct_feed_header,
   Extensions_nyct_trip_descriptor,
   Extensions_nyct_stop_time_update
@@ -550,7 +550,7 @@ let Extensions_nyct_stop_time_update = SwiftProtobuf.MessageExtension<SwiftProto
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension TripReplacementPeriod: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "route_id"),
     2: .standard(proto: "replacement_period"),
   ]
@@ -576,7 +576,7 @@ extension TripReplacementPeriod: SwiftProtobuf._MessageImplementationBase, Swift
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: TripReplacementPeriod) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: TripReplacementPeriod) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -593,12 +593,12 @@ extension TripReplacementPeriod: SwiftProtobuf._MessageImplementationBase, Swift
 }
 
 extension NyctFeedHeader: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "nyct_subway_version"),
     2: .standard(proto: "trip_replacement_period"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: NyctFeedHeader) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: NyctFeedHeader) -> Bool {
     if self._nyctSubwayVersion != other._nyctSubwayVersion {return false}
     if self.tripReplacementPeriod != other.tripReplacementPeriod {return false}
     if unknownFields != other.unknownFields {return false}
@@ -607,13 +607,13 @@ extension NyctFeedHeader: SwiftProtobuf._MessageImplementationBase, SwiftProtobu
 }
 
 extension NyctTripDescriptor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "train_id"),
     2: .standard(proto: "is_assigned"),
     3: .same(proto: "direction"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: NyctTripDescriptor) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: NyctTripDescriptor) -> Bool {
     if self._trainID != other._trainID {return false}
     if self._isAssigned != other._isAssigned {return false}
     if self._direction != other._direction {return false}
@@ -623,7 +623,7 @@ extension NyctTripDescriptor: SwiftProtobuf._MessageImplementationBase, SwiftPro
 }
 
 extension NyctTripDescriptor.Direction: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "NORTH"),
     2: .same(proto: "EAST"),
     3: .same(proto: "SOUTH"),
@@ -632,12 +632,12 @@ extension NyctTripDescriptor.Direction: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension NyctStopTimeUpdate: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scheduled_track"),
     2: .standard(proto: "actual_track"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: NyctStopTimeUpdate) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: NyctStopTimeUpdate) -> Bool {
     if self._scheduledTrack != other._scheduledTrack {return false}
     if self._actualTrack != other._actualTrack {return false}
     if unknownFields != other.unknownFields {return false}
